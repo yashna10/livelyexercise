@@ -20,21 +20,21 @@ test('Logging to the application UI and fetching the transaction history', async
  
   await page.waitForLoadState("domcontentloaded");
   await page.waitForLoadState('networkidle');   
+
   await page.locator('a[href="/parabank/findtrans.htm"]').click();
   await expect(accountsStatementPage.find_transactions_header  ).toBeVisible();  
   await expect(accountsStatementPage.select_an_account).toBeVisible();
   await (accountsStatementPage.select_an_account).selectOption({ index: 0 });
   await expect(accountsStatementPage.find_by_date_Range ).toBeVisible();  
-  await expect(accountsStatementPage.between).toBeVisible();  
-  await expect(accountsStatementPage.and).toBeVisible();  
-  await (accountsStatementPage.transaction_id).fill("18805");
+  await (accountsStatementPage.between).fill("09-02-2023");  
+  await (accountsStatementPage.and).fill("12-05-2023");  
   
   await accountsStatementPage.find_button.click();
   await expect(accountsStatementPage.transactions_table).toBeVisible();
 
   await expect (accountsStatementPage.transaction_results).toBeVisible();
  // await expect (accountsStatementPage.transaction_rowvalues).toBeVisible();
-  await page.locator("//td//a").click();
+  await page.locator("(//td//a)[1]").click();
 
   await expect (accountsStatementPage.transaction_Details).toBeVisible();
 

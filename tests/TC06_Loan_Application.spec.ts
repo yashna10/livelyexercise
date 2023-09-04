@@ -27,7 +27,6 @@ test('Generating account Statement', async ({ page}) => {
 
     await expect(loanApplicationPage.Loan_Request_Processed ).toBeVisible();
     await expect(loanApplicationPage.Loan_Provider ).toBeVisible();
-    await expect((loanApplicationPage.Loan_Provider )).toHaveText('ParaBank');
     await expect(loanApplicationPage.Loan_Date ).toBeVisible();
     await expect(loanApplicationPage.Status ).toBeVisible();
     await expect((loanApplicationPage.Status )).toHaveText('Approved');

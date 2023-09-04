@@ -10,7 +10,7 @@ const fs = require('fs');
     let accountloginPage: AccountLoginPage;
     accountloginPage = new AccountLoginPage(page);
 
-    const jsonFilePath = 'D:/Lively/automation-exercise/data.json';
+    const jsonFilePath = './data.json';
     const data = JSON.parse(fs.readFileSync(jsonFilePath, 'utf-8'));
 
   console.log('Username:', data.randomnfirstame);

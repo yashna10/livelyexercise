@@ -61,7 +61,7 @@
         this.find_by_date_Range  = page.locator("(//*[contains(text(),'Find by Date Range')])");
         this.between  = page.locator("input[id='criteria.fromDate']");
         this.and  = page.locator("input[id='criteria.toDate']");
-        this.find_button = page.locator("(//button[@type='submit'])[1]");
+        this.find_button = page.locator("(//button[@type='submit'])[3]");
         this.transaction_results = page.locator("//*[contains(text(),'Transaction Results')]");
         this.transaction_id = page.locator("input[id='criteria.transactionId']");
         this.transaction_Details = page.locator("(//*[contains(text(),'Transaction Details')])[2]")

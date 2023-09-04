@@ -76,7 +76,7 @@ test('Generating account Statement', async ({page }) => {
   console.log(await page.locator("table[id=transactionTable] tbody tr td").nth(4).innerText());
  
   expect(await page.locator("table[id=transactionTable] tbody tr td").nth(1).innerText()).toEqual('Funds Transfer Sent');
-  expect(await page.locator("table[id=transactionTable] tbody tr td").nth(2).innerText()).toEqual('$');
+  expect(await page.locator("table[id=transactionTable] tbody tr td").nth(2).innerText()).toEqual('$100.00');
   expect(await page.locator("table[id=transactionTable] tbody tr td").nth(4).innerText()).toContain('-2023');
   
 

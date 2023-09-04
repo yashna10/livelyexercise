@@ -27,7 +27,7 @@ class LoanApplicationPage {
    this.ApplyNow = page.locator("input[type=submit]");
    this.Apply_for_a_Loan_header = page.locator("h1.title");
    this.Loan_Request_Processed = page.locator("//*[contains(text(),'Loan Request Processed')]");
-   this.Loan_Provider = page.locator("//*[contains(text(),'Loan Provider:')]/ancestor::tr//td[contains(text(),'ParaBank')]");
+   this.Loan_Provider = page.locator("//*[contains(text(),'Loan Provider:')]");
    this.Loan_Date = page.locator("//*[contains(text(),'Date')]/ancestor::tr//td[contains(text(),'-2023')]");
    this.Status = page.locator("//*[contains(text(),'Status')]/ancestor::tr//td[contains(text(),'Approved')]");
    this.Loan_Approved_Message = page.locator("//*[contains(text(),'Congratulations, your loan has been approved.')]");

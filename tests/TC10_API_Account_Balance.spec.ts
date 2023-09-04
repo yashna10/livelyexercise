@@ -26,7 +26,7 @@ test('Logging to the application UI and fetching the available balance', async (
 
 test('Fetching the account Balance using API', async ({ request }) => {
 
-  const jsonFilePath = 'D:/Lively/automation-exercise/data.json';
+  const jsonFilePath = './data.json';
   const data = JSON.parse(fs.readFileSync(jsonFilePath, 'utf-8'));
 
 console.log('Username:', data.randomnfirstame);

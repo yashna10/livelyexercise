@@ -4,7 +4,7 @@ const fs = require('fs');
 
 
 test('Register the User', async ({ page }) => {
-    await page.goto('https://parabank.parasoft.com/parabank/index.html');
+    await page.goto('https://parabank.parasoft.com/parabank/index.htm');
 
     await page.click('text=Register');
     

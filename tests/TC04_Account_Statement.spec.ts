@@ -1,7 +1,6 @@
 import {test,expect, chromium} from '@playwright/test';
-import AccountLoginPage from '../objects/AccountLoginPage'
 import AccountsStatementPage from '../objects/AccountsStatementPage'
-import { accountLoginTest,delay } from './CommonMethods.spec';
+import { accountLoginTest,delay } from './CommonMethods';
 
 
 test('Generating account Statement', async ({page }) => {

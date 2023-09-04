@@ -2,7 +2,7 @@
 const { test, expect ,chromium} = require('@playwright/test');
 const { parseString } = require('xml2js');
 import AccountsStatementPage from '../objects/AccountsStatementPage'
-import { accountLoginTest,delay } from './CommonMethods.spec';
+import { accountLoginTest,delay } from './CommonMethods';
 const fs = require('fs');
 
 let trans_id ,trans_date ,trans_description , trans_type ,trans_amount;

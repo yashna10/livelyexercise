@@ -6,7 +6,7 @@ const fs = require('fs');
 
 
   test('Account Login Test', async ({ page }) => {
-    await page.goto('https://parabank.parasoft.com/parabank/index.html');
+    await page.goto('https://parabank.parasoft.com/parabank/index.htm');
     let accountloginPage: AccountLoginPage;
     accountloginPage = new AccountLoginPage(page);
 

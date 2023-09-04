@@ -2,10 +2,10 @@ import {test,expect, chromium} from '@playwright/test';
 import UserRegistrationPage from '../objects/UserRegistrationPage';
 import ProfileUpdatePage from '../objects/ProfileUpdatePage';
 import AccountLoginPage from '../objects/AccountLoginPage'
-import { accountLoginTest,delay } from './CommonMethods.spec';
+import { accountLoginTest,delay } from './CommonMethods';
 
 test('Register the User and do the profile Update after registering', async ({ page }) => {
-    await page.goto('https://parabank.parasoft.com/parabank/index.html');
+    await page.goto('https://parabank.parasoft.com/parabank/index.htm');
 
     await page.click('text=Register');
     

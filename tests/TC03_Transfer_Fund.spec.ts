@@ -1,7 +1,7 @@
 import {test,expect, chromium} from '@playwright/test';
 import AccountLoginPage from '../objects/AccountLoginPage'
 import TransferFundPage from '../objects/TransferFundPage'
-import { accountLoginTest,delay } from './CommonMethods.spec';
+import { accountLoginTest,delay } from './CommonMethods';
 
 
 

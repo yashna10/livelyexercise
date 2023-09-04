@@ -30,7 +30,7 @@ jobs:
 
       - name: Run Playwright tests
         run: |
-          npm run test:${{ matrix.browser }}
+          npx playwright test
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}  # Add your Slack webhook secret to GitHub Secrets
 

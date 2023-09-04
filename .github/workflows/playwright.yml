@@ -36,7 +36,7 @@ jobs:
 
       - name: Send Slack notification
         if: always()  # Ensure this step runs even if previous steps fail
-        uses: rtCamp/action-slack-notify@v3
+        uses: rtCamp/action-slack-notify@v1
         with:
           status: ${{ job.status }}
           mentions: "here"  # You can mention specific users or channels if needed

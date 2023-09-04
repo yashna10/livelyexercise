@@ -1,0 +1,44 @@
+name: Playwright Parallel Tests with Slack Notification
+
+on:
+  push:
+    branches:
+      - main  # Adjust this to the branch you want to trigger the workflow on
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        browser:
+          - chromium
+          - firefox
+          - webkit
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14  # You can adjust the Node.js version as needed
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Playwright tests
+        run: |
+          npm run test:${{ matrix.browser }}
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}  # Add your Slack webhook secret to GitHub Secrets
+
+      - name: Send Slack notification
+        if: always()  # Ensure this step runs even if previous steps fail
+        uses: rtCamp/action-slack-notify@v3
+        with:
+          status: ${{ job.status }}
+          mentions: "here"  # You can mention specific users or channels if needed
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}

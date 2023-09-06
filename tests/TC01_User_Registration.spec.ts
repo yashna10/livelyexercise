@@ -4,11 +4,10 @@ const fs = require('fs');
 
 
 test('Register the User', async ({ page }) => {
-    await page.goto('https://parabank.parasoft.com/parabank/index.htm');
+    await page.goto('https://parabank.parasoft.com/parabank/');
 
     await page.click('text=Register');
     
-    // Expects the URL to contain about.htm.
     await expect(page).toHaveURL(/.*register.htm/);
     let registerpage: UserRegistrationPage;
     registerpage = new UserRegistrationPage(page);

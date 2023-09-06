@@ -1,11 +1,12 @@
 import {test,expect, chromium} from '@playwright/test';
+import { accountLoginTest,delay } from './CommonMethods';
 import AccountLoginPage from '../objects/AccountLoginPage'
 const fs = require('fs');
 
 
 
 
-  test('Verify whether the user is able to login to the parabank website with valid credentials', async ({ page }) => {
+  test('To Verify that the User is not provided with the account closure option in the Parabank Website', async ({ page }) => {
     await page.goto('https://parabank.parasoft.com/parabank/');
     let accountloginPage: AccountLoginPage;
     accountloginPage = new AccountLoginPage(page);
@@ -45,6 +46,20 @@ const fs = require('fs');
     let account_overview = await accountloginPage.account_Creation_success_message.allInnerTexts();
     expect(account_overview).toContainEqual("Accounts Overview");
     
+
+    function isStringInArray(target: string, array: string[]): boolean {
+        return array.includes(target);
+    }
+
+    await delay(6000);
+    const banking_options: string[] = await accountloginPage.leftpane_options.allInnerTexts();
+    const targetString: string = "Account Closure";
+    
+    if (isStringInArray(targetString, banking_options)) {
+        console.log(`${targetString} is in the array.`);
+    } else {
+        console.log(`${targetString} is not in the array.`);
+    }
     }
 
   );

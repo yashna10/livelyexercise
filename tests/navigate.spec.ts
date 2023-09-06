@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 test('navigate to about us page', async ({ page }) => {
-    await page.goto('https://parabank.parasoft.com/parabank/index.html');
+    await page.goto('https://parabank.parasoft.com/parabank/');
     
     // Click the About Us link.
     await page.click('text=About Us');

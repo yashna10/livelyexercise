@@ -5,7 +5,7 @@ import { accountLoginTest,delay } from './CommonMethods';
 
 
 
-test('Run Account Login Test', async ({ page }) => {
+test('Verify whether the user is able to transfer funds  and validate the success message', async ({ page }) => {
      accountLoginTest(page);
     let transferFundPage: TransferFundPage;
 

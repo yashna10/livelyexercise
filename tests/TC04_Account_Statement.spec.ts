@@ -3,7 +3,7 @@ import AccountsStatementPage from '../objects/AccountsStatementPage'
 import { accountLoginTest,delay } from './CommonMethods';
 
 
-test('Generating account Statement', async ({page }) => {
+test('Verify whether the user is able to Generate account Statement', async ({page }) => {
     accountLoginTest(page);
     let accountsStatementPage: AccountsStatementPage;
     await delay(2000);

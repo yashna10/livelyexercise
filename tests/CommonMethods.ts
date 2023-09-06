@@ -5,7 +5,7 @@ const fs = require('fs');
 
 
 export async function accountLoginTest(page) {
-    await page.goto('https://parabank.parasoft.com/parabank/index.htm');
+    await page.goto('https://parabank.parasoft.com/parabank/');
     let accountloginPage: AccountLoginPage;
     accountloginPage = new AccountLoginPage(page);
 
@@ -23,19 +23,6 @@ export async function accountLoginTest(page) {
 
     await expect(accountloginPage.login).toBeVisible();
     await (accountloginPage.login).click();
-
-    function delay(time) {
-        return new Promise(function(resolve) { 
-            setTimeout(resolve, time)
-        });
-     }
-
-    console.log('before waiting');
-    await delay(6000);
- 
-    await page.waitForLoadState("domcontentloaded");
-    await page.waitForLoadState('networkidle');   
-
     await expect(accountloginPage.welcome).toBeVisible();
     }
 

@@ -12,6 +12,8 @@ class AccountsLoginPage {
     request_loan: Locator;
     find_transaction : Locator;
     update_profile: Locator;
+    logout:Locator;
+    leftpane_options:Locator;
   
   
     constructor(newPage: Page) {
@@ -28,6 +30,7 @@ class AccountsLoginPage {
      this.find_transaction = newPage.locator('a[href="/parabank/findtrans.htm"]');
      this.update_profile = newPage.locator('a[href="/parabank/updateprofile.htm"]');
      this.logout = newPage.locator('a[href="/parabank/logout.htm"]');
+     this.leftpane_options = newPage.locator("//div[@id='leftPanel']//ul//li//a");
     }
   
   

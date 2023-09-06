@@ -7,7 +7,7 @@ const fs = require('fs');
 
 let AccountBalance;
 
-test('Logging to the application UI and fetching the available balance', async ({page }) => {
+test('Verify whether the user is able to login to the application and fetch the available balance', async ({page }) => {
 
   accountLoginTest(page);
   let accountsStatementPage: AccountsStatementPage;
@@ -24,7 +24,7 @@ test('Logging to the application UI and fetching the available balance', async (
  
 });
 
-test('Fetching the account Balance using API', async ({ request }) => {
+test('Verify whether the user is able to fetch the account Balance using API and validate whether it is the same as the one displayed in the UI', async ({ request }) => {
 
   const jsonFilePath = './data.json';
   const data = JSON.parse(fs.readFileSync(jsonFilePath, 'utf-8'));
@@ -38,15 +38,13 @@ console.log('Password:', data.randompassword);
   // Send a GET request using request.get()
   const response = await request.get(apiUrl);
   console.log(AccountBalance);
+  console.log(apiUrl);
 
   // Ensure the response status code is truthy (e.g., 200)
   await expect(response.status()).toBeTruthy();
   console.log(response.headers());
 
-  // Access and print the response cookies from the response object
-  const cookies = response.headers()['set-cookie'];
-  console.log('Response Cookies:', cookies);
-  // Access and parse the JSON response content
+
   const responseText = await response.text();
   let customerId;
   console.log(responseText);
@@ -66,6 +64,7 @@ console.log('Password:', data.randompassword);
   console.log(customerId);
   const apistring = "https://parabank.parasoft.com/parabank/services/bank/customers/" + customerId +"/accounts"
   const response1 = await request.get(apistring);
+  await delay(6000);
   const responseText1 = await response1.text();
   console.log(responseText1)
   let customerBalance;

@@ -8,7 +8,7 @@ const fs = require('fs');
 let trans_id ,trans_date ,trans_description , trans_type ,trans_amount;
 let id,account_id,type,dates,amount,description,formattedDate,transaction_amount;
 
-test('Logging to the application UI and fetching the transaction history', async ({page }) => {
+test('Verify whether the user is able to login to the application and fetch the transaction history', async ({page }) => {
   accountLoginTest(page);
   let accountsStatementPage: AccountsStatementPage;
   
@@ -33,7 +33,6 @@ test('Logging to the application UI and fetching the transaction history', async
   await expect(accountsStatementPage.transactions_table).toBeVisible();
 
   await expect (accountsStatementPage.transaction_results).toBeVisible();
- // await expect (accountsStatementPage.transaction_rowvalues).toBeVisible();
   await page.locator("(//td//a)[1]").click();
 
   await expect (accountsStatementPage.transaction_Details).toBeVisible();
@@ -74,7 +73,7 @@ test('Logging to the application UI and fetching the transaction history', async
 
 });
 
-test('Fetching the Transaction History using API', async ({ request }) => {
+test('Verify whether the user is able to fetch the Transaction History Table using API and validate whether it is the same as the one fetched from the UI', async ({ request }) => {
   
   const apiUrl = 'https://parabank.parasoft.com/parabank/services/bank/transactions/'+ trans_id;
 
@@ -97,8 +96,7 @@ test('Fetching the Transaction History using API', async ({ request }) => {
         amount = result.transaction.amount;
         description = result.transaction.description;
 
-        
-        //const resultArray = rowheadingsnew.map((str) => str.replace(regexPattern, ' '));
+  
         const resultdate = dates.map((str) => str.split("T"));
   
       

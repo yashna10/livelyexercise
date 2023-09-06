@@ -4,12 +4,11 @@ import ProfileUpdatePage from '../objects/ProfileUpdatePage';
 import AccountLoginPage from '../objects/AccountLoginPage'
 import { accountLoginTest,delay } from './CommonMethods';
 
-test('Register the User and do the profile Update after registering', async ({ page }) => {
-    await page.goto('https://parabank.parasoft.com/parabank/index.htm');
+test('Verify whether the user is able to perform the profile updation after registering', async ({ page }) => {
+    await page.goto('https://parabank.parasoft.com/parabank/');
 
     await page.click('text=Register');
     
-    // Expects the URL to contain about.htm.
     await expect(page).toHaveURL(/.*register.htm/);
     let registerpage: UserRegistrationPage;
     let profileUpdatePage: ProfileUpdatePage;

@@ -4,7 +4,7 @@ import BillPaymentPage from '../objects/BillPaymentPage'
 import { accountLoginTest,delay } from './CommonMethods';
 
 
-test('Generating account Statement', async ({page }) => {
+test('Verify whether the user is able to perform the Bill Payment and validate the success message', async ({page }) => {
 
     let billPaymentPage: BillPaymentPage;
 

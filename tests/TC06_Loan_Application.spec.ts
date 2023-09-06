@@ -2,7 +2,7 @@ import {test,expect, chromium} from '@playwright/test';
 import LoanApplicationPage from '../objects/LoanApplicationPage'
 import { accountLoginTest,delay } from './CommonMethods';
 
-test('Generating account Statement', async ({ page}) => {
+test('Verify whether the user is able to Request for a loan  and validate the success message', async ({ page}) => {
 
     accountLoginTest(page);
     let loanApplicationPage: LoanApplicationPage;
